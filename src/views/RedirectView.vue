@@ -1,11 +1,12 @@
 <template>
+  <RouterView />
   <div class="flex h-screen w-full items-center justify-center">
     <img src="../assets/svg/spin.svg" alt="spinner" class="h-5 w-5 animate-spin" />
   </div>
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router'
+import { useRoute, RouterView } from 'vue-router'
 import URLsService from '../services/urls'
 const {
   params: { url }
