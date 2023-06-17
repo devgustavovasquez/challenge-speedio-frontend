@@ -43,7 +43,7 @@ const listRanking = async () => {
 
 const listByUser = async ({ token }) => {
   try {
-    const response = await API.get('/urls/me', {
+    const response = await API.get('/me', {
       params: { token }
     })
     return response.data
