@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import UrlsView from '../views/UrlsView.vue'
 import DashView from '../views/DashView.vue'
-import URLsService from '../services/urls'
+import RedirectView from '../views/RedirectView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -25,15 +25,7 @@ const router = createRouter({
     {
       path: '/:url',
       name: 'redirect',
-      async beforeEnter(to, from, next) {
-        try {
-          const { redirectURL } = await URLsService.getOrigin({ url: to.params.url })
-          alert(redirectURL)
-          window.location.href = redirectURL
-        } catch (error) {
-          next({ name: 'home' })
-        }
-      }
+      component: RedirectView
     }
   ]
 })

@@ -66,7 +66,6 @@ const fetchURLs = async () => {
   try {
     const data = await URLsService.listRanking()
     urls.value = data
-    console.table(data)
   } catch (error) {
     toast.error('Error fetching URLs')
   } finally {
