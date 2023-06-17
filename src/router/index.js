@@ -28,6 +28,7 @@ const router = createRouter({
       async beforeEnter(to, from, next) {
         try {
           const { redirectURL } = await URLsService.getOrigin({ url: to.params.url })
+          alert(redirectURL)
           window.location.href = redirectURL
         } catch (error) {
           next({ name: 'home' })
