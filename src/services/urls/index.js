@@ -14,7 +14,7 @@ const create = async ({ title, url, token }) => {
     const response = await API.post('/urls', {
       title,
       origin: url,
-      token
+      token: token || undefined
     })
 
     return response.data
